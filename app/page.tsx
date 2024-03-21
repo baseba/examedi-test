@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import PokeCard from "./components/card";
 import Link from "next/link";
 
@@ -52,7 +52,7 @@ export default function Home() {
 
   return (
     loading ? <div>Loading...</div> :
-    <main>
+    <Suspense>
       <ul className="grid grid-cols-4 gap-4">
         {pokemons.map((pokemon, index) => (
           <li key={index}>
@@ -69,6 +69,6 @@ export default function Home() {
           Load more Pokémon!
         </button>
       </div>
-    </main>
+    </Suspense>
   );
 }
