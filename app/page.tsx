@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import PokeCard from "./components/card";
 import Link from "next/link";
@@ -12,7 +12,7 @@ export default function Home() {
     url: string;
   };
 
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
   const pathName = usePathname();
   const {replace} = useRouter();
   // const q = searchParams.get('q');
