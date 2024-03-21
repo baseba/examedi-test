@@ -15,7 +15,7 @@ export default function Home() {
   const searchParams = useSearchParams();
   const pathName = usePathname();
   const {replace} = useRouter();
-  const q = searchParams.get('q');
+  // const q = searchParams.get('q');
 
   const [pokemons, setPokemons] = useState([] as Pokemon[]);
   const [loading, setLoading] = useState(true);
@@ -28,25 +28,18 @@ export default function Home() {
       const data = await response.json();
       setPokemons(data.results);
       setLoading(false);
-      if (q) {
-        setQuantity(Number(q));
-      }
+      // if (q) {
+      //   setQuantity(Number(q));
+      // }
     };
 
     fetchData();
-  }, [loading, quantity, q]);
+  }, [loading, quantity, ]);
   
   const handleButton = (e: any) => {
-    console.log('clicked');
-    const params = new URLSearchParams();
-    if (q) {
-      params.set('q', String(Number(q) + 12));
-    }
-    else {
-      params.set('q', String(quantity + 12));
-    }
+    // console.log('clicked');
     setQuantity(quantity + 12);
-    replace(`${pathName}?${params.toString()}`);
+    // replace(`${pathName}?${params.toString()}`);
   }
 
 
