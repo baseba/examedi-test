@@ -34,7 +34,7 @@ export default function Home() {
     };
 
     fetchData();
-  }, [loading]);
+  }, [loading, quantity, q]);
   
   const handleButton = (e: any) => {
     console.log('clicked');

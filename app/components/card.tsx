@@ -1,6 +1,7 @@
 'use client'
 import { serializePageInfos } from "next/dist/build/utils";
 import { useEffect, useState } from "react"
+import Pokemon from "../[pokemon]/page";
 type Pokemon = {
     name: string;
     url: string;
@@ -53,7 +54,7 @@ export default function PokeCard(props :Pokemon) {
         };
 
         fetchData();
-    }, []);
+    }, [url]);
 
     return (
         loading? <div className=" bg-slate-400 w-3 animate-spin"></div> :
@@ -73,7 +74,7 @@ export default function PokeCard(props :Pokemon) {
                     <h2 className="text-lg font-bold leading-none">{name}</h2>
                     <h3 className=" text-gray-200"># {number}</h3>
                     {types.map((t) => (
-                        <p className={`text-sm font-semibold p-1 my-1 rounded leading-none ${colorTypes[t as keyof typeof colorTypes]}`}>{t}</p>
+                        <p key={`name-${t}`} className={`text-sm font-semibold p-1 my-1 rounded leading-none ${colorTypes[t as keyof typeof colorTypes]}`}>{t}</p>
                     ))}
                     
                 </div>
